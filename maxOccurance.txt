@@ -1,0 +1,28 @@
+/* Input a string of alphabets. Find out the number of occurrence of all alphabets in that string. 
+Find out the alphabet with maximum occurrence. */
+
+function maxOccurance(word: string){
+    let w:string = word.toLowerCase();
+    let fin:string ="";
+    let max: number = 0;
+    let maxs:string ="";
+    let count = 0;
+    for(let i=0;i<w.length;i++){
+        if(fin.indexOf(w[i])==-1){
+            fin+=w[i];
+            for(let j=0;j<w.length;j++){
+                if(w[i]==w[j]){
+                    count+=1;
+                }
+            }
+            console.log(`${w[i]} - ${count}`)
+            if(count>max){
+                max = count;
+                maxs = w[i];
+            }
+            count=0;
+        }
+    }
+    console.log(`maxs '${maxs}' - ${max}`);
+}
+maxOccurance("Chainsys");
