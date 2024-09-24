@@ -1,0 +1,21 @@
+/* Write code that enhances all arrays such that you can call the array.last() method on any array and it will return the last element. If there are no elements in the array, it should return -1.*/
+
+// array-extensions.d.ts
+interface Array<T> {
+    last(): void;
+}
+
+Array.prototype.last = function(this) {
+    if(this.length===0){
+        return -1;
+    }else{
+        return this[this.length-1];
+    }
+};
+
+let List:any = [null,{},3];
+let L = [];
+function lastElement(list:string[]){
+    return list.last();
+}
+console.log(lastElement(List));
