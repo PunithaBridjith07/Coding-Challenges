@@ -1,0 +1,51 @@
+/* Write a program that reads an array of ints and outputs the length of the
+longest sequence in strictly ascending order. Print the elements of longest
+ascending sequence in an array Elements of the sequence must go one after
+another. A single number is assumed to be an ordered sequence with the length= 1.
+
+Enter the number of elements 
+5
+Enter 5 numbers in any order to find the longest ascending sequence
+
+45
+40
+0
+39
+10
+The max value is : 2
+2numbers in ascending order
+0 39 */
+
+
+const input = require('prompt-sync')();
+const array = input("Enter elements:");
+
+const arr = array ? array.split(' ').map(Number) : [];
+
+let maxLength = 1;
+let currentLength = 1;
+let startIndex = 0;
+let bestStartIndex = 0;
+
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > arr[i - 1]) {
+        currentLength++;
+    } else {
+        if (currentLength > maxLength) {
+            maxLength = currentLength;
+            bestStartIndex = startIndex;
+        }
+        currentLength = 1;
+        startIndex = i;
+    }
+}
+if (currentLength > maxLength) {
+    maxLength = currentLength;
+    bestStartIndex = startIndex;
+}
+
+
+const longestSequence = arr.slice(bestStartIndex, bestStartIndex + maxLength);
+
+console.log(maxLength);
+console.log(longestSequence);
