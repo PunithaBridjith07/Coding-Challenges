@@ -1,0 +1,12 @@
+/* Write a function that takes in two arrays of numbers and returns a new array with the sum of each pair of corresponding elements. */
+let getInput = require('prompt-sync')();
+
+function sumArrays(array1: number[], array2: number[]): number[] {
+    let finalArray: number[] = [];
+    let maxLength: number = array1.length > array2.length ? array1.length : array2.length;
+    Array.from({ length: maxLength }, (_, i) => finalArray[i] = (array1[i] || 0) + (array2[i] + 0))
+    return finalArray;
+}
+let array1: number[] = getInput("enter Array 1 : ").split(" ").map(Number);
+let array2: number[] = getInput("enter Array 2 : ").split(" ").map(Number);
+console.log(sumArrays(array1, array2));

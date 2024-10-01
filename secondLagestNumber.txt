@@ -1,0 +1,11 @@
+/* Create a function that takes in an array of numbers and returns the second largest number in the array. */
+
+const getInput = require('prompt-sync')();
+
+function secondLagestNumber(numberList: number[]): number {
+    let max: number[] = numberList.sort((a, b) => a - b);
+    return max[max.length - 2];
+}
+
+let Input: number[] = getInput("Enter the List : ").split(" ").map(Number);
+console.log(`secondLagestNumber : ${secondLagestNumber(Input)}`);
