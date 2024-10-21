@@ -1,0 +1,12 @@
+/* Find the Maximum Number in an Array(Write a function that takes an array of numbers and returns the maximum number.) */
+
+
+function maximumNumber(data: number[]): void {
+    let maxNumber:number = 0;
+    data.forEach((data) => maxNumber < data ? maxNumber = data : maxNumber)
+    console.log(`\nMaximumNumber in array : ${maxNumber}\n`);
+}
+
+let getInput = require('prompt-sync')();
+
+maximumNumber(getInput("Enter the Array :").split(' ').map(Number));

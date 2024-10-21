@@ -1,0 +1,11 @@
+/* Write a function that takes an array of numbers and returns a new array with only the unique numbers (removing duplicates) */
+
+function returnUniqueNumbers(data: number[]): void {
+    let dataStored: number[] = [];
+    data.forEach((data) => dataStored.indexOf(data) == -1 ? dataStored.push(data) : dataStored);
+    console.log(`\nUnique Number Array : ${dataStored}\n`);
+}
+
+let getInput = require('prompt-sync')();
+
+returnUniqueNumbers(getInput("Enter the Array : ").split(' ').map(Number))
