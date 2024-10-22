@@ -1,0 +1,23 @@
+let getInput = require('prompt-sync')()
+
+function placeOfService(age: number, sex: string, maritalStatus: string) {
+    if (sex == 'F') {
+        return 'Urban areas';
+    }
+    if (sex == 'M' && (age < 40 && age > 60)) {
+        if ((age >= 20 && age <= 40)) {
+            return 'Work in anywhere';
+        }
+        if ((age >= 40 && age <= 60)) {
+            return 'Work in urban areas';
+        }
+    } else {
+        return 'ERROR'
+    }
+}
+
+let age: number = getInput("Enter the Age : ");
+let sex:string = getInput("Enter the Sex(M or F) : ")
+let maritalStatus:string = getInput("Enter the maritalStatus : ")
+
+console.log(placeOfService(age,sex,maritalStatus));
