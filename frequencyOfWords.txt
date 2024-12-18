@@ -1,0 +1,20 @@
+const input: string[] = ("this is a test this is only a test").split(" ");
+let entry: string[] = [];
+let result = {};
+function merge(oldData, newData) {
+    return { ...oldData, ...newData };
+}
+
+for (let i = 0; i < input.length; i++) {
+    let count = 1;
+    if (entry.indexOf(input[i]) == -1) {
+        entry.push(input[i]);
+        for (let j = i + 1; j < input.length; j++) {
+            if (input[j] === input[i]) {
+                count++;
+            }
+        }
+        result = merge(result, { [input[i]]: count });
+    }
+}
+console.log(result);

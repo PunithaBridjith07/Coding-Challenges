@@ -1,0 +1,14 @@
+const arrOfNumbers: number[] = [-2,0,10,-19,4,6,-8];
+let isDoubleOfIntegers: boolean = false;
+for (let i: number = 0; i < arrOfNumbers.length; i++) {
+    if (arrOfNumbers.indexOf(arrOfNumbers[i] * 2) !== -1) {
+        isDoubleOfIntegers = true;
+        console.log(arrOfNumbers[i]);
+        
+        break;
+    }
+    else {
+        isDoubleOfIntegers = false;
+
+    }
+}
