@@ -1,0 +1,29 @@
+let getInput = require('prompt-sync')()
+
+function maxScoredString(string: string): number {
+    let maxCount = 0;
+    for (let i = 0; i < string.length; i++) {
+        let left: string = ''
+        let right: string = ''
+        if (i > 0) {
+            left = string.slice(0, i);
+            right = string.slice(i, string.length);
+        }
+        const singleCount = count(left, '0') + count(right, '1')
+        if (singleCount > maxCount) {
+            maxCount = singleCount
+        }
+    }
+    return maxCount
+}
+
+function count(string: string, letter: string): number {
+    let count = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === letter) {
+            count++;
+        }
+    }
+    return count
+}
+console.log(maxScoredString(getInput("Enter string: ")));
